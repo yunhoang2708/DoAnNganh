@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Chat with ChatGPT by OpenAI";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/contact_responsive.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/contact_styles.css" />
+
+<div class="container contact_container">
+    <div class="row">
+        <div class="col">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="/home">Trang chủ</a></li>
+                    <li class="active"><a href="/chat-bot"><i class="fa fa-angle-right" aria-hidden="true"></i>ChatGPT</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <input type="text" id="userInput" placeholder="Nhập câu hỏi của bạn ở đây...">
+    <button id="sendButton">Gửi</button>
+
+    <div id="chatOutput"></div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#sendButton").click(function () {
+            var userInput = $("#userInput").val();
+            $.ajax({
+                url: '@Url.Action("GetChatResponse", "ChatGPT")',
+                type: 'POST',
+                data: { input: userInput },
+                success: function (result) {
+                    if (result.success) {
+                        $("#chatOutput").append('<p>You: ' + userInput + '</p>');
+                        $("#chatOutput").append('<p>GPT-3: ' + result.response + '</p>');
+                        $("#userInput").val('');
+                    } else {
+                        $("#chatOutput").append('<p>Error: ' + result.response + '</p>');
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+@section scripts{
+    <script src="~/Content/assets/js/contact_custom.js"></script>
+}
