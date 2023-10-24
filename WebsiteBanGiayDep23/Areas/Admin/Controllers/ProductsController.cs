@@ -8,7 +8,7 @@ using WebsiteBanGiayDep23.Models.EF;
 
 namespace WebsiteBanGiayDep23.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin, Employee")]
+    //[Authorize(Roles = "Admin, Employee")]
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

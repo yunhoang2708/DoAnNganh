@@ -8,7 +8,7 @@ namespace WebsiteBanGiayDep23.Areas.Admin.Controllers
 {
 
 
-    [Authorize(Roles = "Admin,Employee")]
+    //[Authorize(Roles = "Admin,Employee")]
     public class AdvController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

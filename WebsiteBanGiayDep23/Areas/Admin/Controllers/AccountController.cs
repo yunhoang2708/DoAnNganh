@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebsiteBanGiayDep23.Models;
+using System.Collections.Generic;
 
 namespace WebsiteBanGiayDep23.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -197,14 +198,14 @@ namespace WebsiteBanGiayDep23.Areas.Admin.Controllers
                 newUser.Email = item.Email;
                 newUser.FullName = item.FullName;
                 newUser.Phone = item.Phone;
-                newUser.Roles = roles;
+                newUser.Role = roles[0];
             }
             ViewBag.Role = new SelectList(db.Roles.ToList(), "Name", "Name");
             return View(newUser);
         }
         
         [HttpPost]
-        public async ActionResult DeleteAccount(string user, string id)
+        public async Task<ActionResult> DeleteAccount(string id, string user)
         {
             var code = new { Success = false }; // * Mặc định xóa không thành công 
             // * Tìm user theo username
