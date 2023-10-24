@@ -1,0 +1,12 @@
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.Migrations.CreateTable.resources
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.Migrations.ThongKe.resources
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.Migrations.Update01.resources
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.Migrations.InsertCustomerIdOder.resources
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.Migrations.Table_Review.resources
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.Migrations.Update_Table_Review_1.resources
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.Migrations.tableWishList.resources
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.csproj.GenerateResource.cache
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.GeneratedMSBuildEditorConfig.editorconfig
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.AssemblyInfoInputs.cache
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.AssemblyInfo.cs
+E:\WebsiteBanGiayDep23\obj\Debug\net7.0\WebsiteBanGiayDep23.csproj.CoreCompileInputs.cache

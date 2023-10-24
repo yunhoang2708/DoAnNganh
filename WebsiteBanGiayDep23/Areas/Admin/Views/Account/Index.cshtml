@@ -46,14 +46,14 @@
                         var i = 1;
                         foreach (var item in Model)
                         {
-                            <tr>
+                            <tr id="trow_@item.Id">
                                 <td>@i</td>
                                 <td>@item.UserName</td>
                                 <td>@item.FullName</td>
                                 <td>@item.Email</td>
                                 <td>
                                     <a href="/Admin/Account/Edit/@item.UserName" class="btn btn-sm btn-primary">Sửa</a>
-                                    <a href="#" data-id="@item.UserName" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                                    <a href="#" data-user="@item.UserName" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xóa</a>
                                 </td>
                             </tr>
                             i++;
@@ -73,27 +73,29 @@
 
 </section>
 <!-- /.content -->
-@section scripts {
+
+@section scripts{
     <script>
         $(document).ready(function () {
-            $('body').on('click', '.btnDelete', function () {
-                var username = $(this).data("username");
-                var conf = confirm("Bạn có muốn xóa?");
-                if (conf = true) {
+            $('.btnDelete').click(function () {
+                var id = $(this).attr('data-id');
+                var user = $(this).attr('data-user');
+                if (confirm('Bạn có chắc chắn muốn xóa tài khoản ' + user + ' không?')) {
                     $.ajax({
-                        url: '/Admin/Account/Delete',
+                        url: '/Admin/Account/DeleteAccount',
                         type: 'POST',
-                        data: { username: username },
-                        success: function (rs) {
-                            if (rs.success) {
-                                $('#trow_' + username).remove();
-                                location.reload();
+                        data: { id: id, user: user },
+                        success: function (res) {
+                            if (res.success) {
+                                $('#trow_' + id).remove();
+                                alert('Xóa thành công');
+                            }
+                            else {
+                                alert('Xóa thất bại');
                             }
                         }
                     });
                 }
-                else
-                    alert("Đã xảy ra lỗi. Không thể xóa. Vui lòng thử lại sau!");
             });
         });
     </script>

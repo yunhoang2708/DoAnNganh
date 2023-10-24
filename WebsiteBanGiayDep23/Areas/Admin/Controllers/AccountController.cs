@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -175,6 +176,56 @@ namespace WebsiteBanGiayDep23.Areas.Admin.Controllers
             }
             ViewBag.Role = new SelectList(db.Roles.ToList(), "Name", "Name");
             return View(model);
+        }
+
+        public ActionResult Edit(string id)
+        {
+            var item = UserManager.FindById(id);
+            var newUser = new CreateAccountViewModel();
+            if (item != null)
+            {
+                var rolesForUser = UserManager.GetRoles(id);
+                var roles = new List<string>();
+                if (rolesForUser != null && rolesForUser.Count() > 0)
+                {
+                    foreach (var role in rolesForUser)
+                    {
+                        roles.Add(role);
+                    }
+                }
+                newUser.UserName = item.UserName;
+                newUser.Email = item.Email;
+                newUser.FullName = item.FullName;
+                newUser.Phone = item.Phone;
+                newUser.Roles = roles;
+            }
+            ViewBag.Role = new SelectList(db.Roles.ToList(), "Name", "Name");
+            return View(newUser);
+        }
+        
+        [HttpPost]
+        public async ActionResult DeleteAccount(string user, string id)
+        {
+            var code = new { Success = false }; // * Mặc định xóa không thành công 
+            // * Tìm user theo username
+            var item = UserManager.FindByName(user);
+            if (item != null)
+            {
+                // * Lấy danh sách role của user
+                var rolesForUser = UserManager.GetRoles(id);
+                if (rolesForUser != null && rolesForUser.Count() > 0)
+                {
+                    //TODO: Xóa user khỏi các role
+                    foreach (var role in rolesForUser)
+                    {
+                        await UserManager.RemoveFromRoleAsync(id, role);
+                    }
+                }
+
+                var res = await UserManager.DeleteAsync(item);
+                code = new { Success = res.Succeeded };
+            }
+            return Json(code);
         }
 
         private IAuthenticationManager AuthenticationManager
