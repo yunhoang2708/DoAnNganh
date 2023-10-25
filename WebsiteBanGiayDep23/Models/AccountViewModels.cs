@@ -68,7 +68,7 @@ namespace WebsiteBanGiayDep23.Models
         public string FullName { get; set; }
 
         public string Phone { get; set; }
-        public string Role { get; set; }
+        public List<string> Roles { get; set; }
 
         [Required]
         [EmailAddress]
@@ -86,6 +86,23 @@ namespace WebsiteBanGiayDep23.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
+
+    public class EditAccountViewModel
+    {
+        [Required]
+        public string UserName { get; set; }
+        [Required]
+        public string FullName { get; set; }
+
+        public string Phone { get; set; }
+        public List<string> Roles { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+    }
+    
     public class RegisterViewModel
     {
         [Required]

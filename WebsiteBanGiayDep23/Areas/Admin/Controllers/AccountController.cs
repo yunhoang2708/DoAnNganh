@@ -170,8 +170,14 @@ namespace WebsiteBanGiayDep23.Areas.Admin.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    UserManager.AddToRole(user.Id, model.Role);
-                    return RedirectToAction("Index", "Home");
+                    if (model.Roles != null) // * Nếu có chọn role
+                    {
+                        foreach (var item in model.Roles)
+                        {
+                            await UserManager.AddToRoleAsync(user.Id, item);
+                        }
+                    }
+                    return RedirectToAction("Index", "Account"); // * Chuyển về trang Index
                 }
                 AddErrors(result);
             }
@@ -182,7 +188,7 @@ namespace WebsiteBanGiayDep23.Areas.Admin.Controllers
         public ActionResult Edit(string id)
         {
             var item = UserManager.FindById(id);
-            var newUser = new CreateAccountViewModel();
+            var newUser = new EditAccountViewModel();
             if (item != null)
             {
                 var rolesForUser = UserManager.GetRoles(id);
@@ -198,10 +204,45 @@ namespace WebsiteBanGiayDep23.Areas.Admin.Controllers
                 newUser.Email = item.Email;
                 newUser.FullName = item.FullName;
                 newUser.Phone = item.Phone;
-                newUser.Role = roles[0];
+                newUser.Roles = roles;
             }
             ViewBag.Role = new SelectList(db.Roles.ToList(), "Name", "Name");
             return View(newUser);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(EditAccountViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = UserManager.FindByName(model.UserName);
+                user.Email = model.Email;
+                user.FullName = model.FullName;
+                user.Phone = model.Phone;
+                var result = await UserManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    var rolesForUser = UserManager.GetRoles(user.Id);
+                    if (model.Roles != null) // * Nếu có chọn role
+                    {
+                        foreach (var item in model.Roles)
+                        {
+                            var checkRole = rolesForUser.FirstOrDefault(x => x.Equals(item));
+                            if (checkRole == null) // * Nếu user chưa có role này thì thêm vào
+                            {
+                                await UserManager.AddToRoleAsync(user.Id, item);
+                            }
+                        }
+                    }
+                    return RedirectToAction("Index", "Account"); // * Chuyển về trang Index
+                }
+                AddErrors(result);
+            }
+            ViewBag.Role = new SelectList(db.Roles.ToList(), "Name", "Name");
+            return View(model);
         }
         
         [HttpPost]
