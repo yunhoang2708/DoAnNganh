@@ -102,7 +102,7 @@ namespace WebsiteBanGiayDep23.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
-    
+
     public class RegisterViewModel
     {
         [Required]

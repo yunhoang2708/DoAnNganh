@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebsiteBanGiayDep23.Models;
-using System.Collections.Generic;
 
 namespace WebsiteBanGiayDep23.Areas.Admin.Controllers
 {
@@ -244,7 +243,7 @@ namespace WebsiteBanGiayDep23.Areas.Admin.Controllers
             ViewBag.Role = new SelectList(db.Roles.ToList(), "Name", "Name");
             return View(model);
         }
-        
+
         [HttpPost]
         public async Task<ActionResult> DeleteAccount(string id, string user)
         {
