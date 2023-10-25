@@ -213,9 +213,11 @@ jQuery(document).ready(function ($) {
 				}
 
 				fav.on('click', function () {
+					var id = $(this).data('id');
 					if (active) {
 						fav.removeClass('active');
 						active = false;
+						DeleteWishlist(id);
 					}
 					else {
 						fav.addClass('active');
@@ -229,11 +231,24 @@ jQuery(document).ready(function ($) {
 
 	function AddWishlist(id) {
 		$.ajax({
-			url: './Wishlist/PostWishlist',
+			url: '/Wishlist/PostWishlist',
 			type: 'POST',
 			data: { ProductId: id },
 			success: function (res) {
-				if (res.success == false) {
+				if (res.Success == false) {
+					alert(res.Message);
+				}
+			}
+		});
+	}
+
+	function DeleteWishlist(id) {
+		$.ajax({
+			url: '/Wishlist/DeleteWishlist',
+			type: 'POST',
+			data: { ProductId: id },
+			success: function (res) {
+				if (res.Success == false) {
 					alert(res.Message);
 				}
 			}

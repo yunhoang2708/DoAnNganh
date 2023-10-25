@@ -196,33 +196,45 @@ jQuery(document).ready(function($)
     				active = true;
     			}
 
-    			fav.on('click', function()
-    			{
-    				if(active)
-    				{
-    					fav.removeClass('active');
-    					active = false;
-    				}
-    				else
-    				{
-    					fav.addClass('active');
+    			fav.on('click', function () {
+					var id = $(this).data('id');
+					if (active) {
+						fav.removeClass('active');
+						active = false;
+						DeleteWishlist(id);
+					}
+					else {
+						fav.addClass('active');
 						active = true;
 						AddWishlist(id);
-    				}
-    			});
+					}
+				});
     		});
     	}
 	}
 
 	function AddWishlist(id) {
 		$.ajax({
-			url: './Wishlist/PostWishlist',
+			url: '/Wishlist/PostWishlist',
 			type: 'POST',
 			data: { ProductId: id },
 			success: function (res) {
-				if (res.success == false) {
+				if (res.Success == false) {
 					alert(res.Message);
                 }
+			}
+		});
+	}
+
+	function DeleteWishlist(id) {
+		$.ajax({
+			url: '/Wishlist/DeleteWishlist',
+			type: 'POST',
+			data: { ProductId: id },
+			success: function (res) {
+				if (res.Success == false) {
+					alert(res.Message);
+				}
 			}
 		});
 	}
