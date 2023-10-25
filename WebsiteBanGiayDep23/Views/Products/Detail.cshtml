@@ -129,17 +129,14 @@
 
                     <div id="tab_3" class="tab_container">
                         <div class="row">
-
+                            <!--Danh sach review-->
                             <div class="col-lg-6 add_review_col">
-                                @Html.Action("Partial_Load_Review", "Review", new { productId = Model.ID })
+                                @Html.Action("Partial_Load_Review", "Review", new { productId = Model.Id })
                             </div>
 
+                            <!--Tao review-->
                             <div class="col-lg-6 add_review_col">
-                                @Html.Action("Partial_Load_Review", "Review", new { productId = Model.ID })
-                            </div>
-
-                            <div class="col-lg-6 add_review_col">
-                                @Html.Action("Partial_Review", "Review", new { productId = Model.ID })
+                                @Html.Action("Partial_Review", "Review", new { productId = Model.Id })
                             </div>
 
                         </div>
