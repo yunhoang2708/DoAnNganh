@@ -265,16 +265,15 @@ namespace WebBanHangOnline.Controllers
                     WebsiteBanGiayDep23.Common.Common.SendMail("HYPEBEAST SNEAKERS", "Đơn hàng mới #" + order.Code, contentAdmin.ToString(), ConfigurationManager.AppSettings["EmailAdmin"]);
                     cart.ClearCart();
                     code = new { Success = true, Code = req.TypePayment, Url = "" };
-                    //var url = "";
                     if (req.TypePayment == 2)
                     {
                         var url = UrlPayment(req.TypePaymentVN, order.Code);
                         code = new { Success = true, Code = req.TypePayment, Url = url };
                     }
                 }
-                return Json(code);
             }
-            return RedirectToAction("CheckOutSuccess");
+            return Json(code);
+            // return RedirectToAction("CheckOutSuccess");
         }
 
         [AllowAnonymous]
@@ -361,8 +360,6 @@ namespace WebBanHangOnline.Controllers
             }
             return Json(new { Success = false });
         }
-
-
 
         #region Thanh toán vnpay
         public string UrlPayment(int TypePaymentVN, string orderCode)

@@ -23,7 +23,7 @@
         function OnSuccessCO(res) {
             if (res.Success) {
                 if (res.Code == 1) {
-                    location.href = "./ShoppingCart/CheckOutSuccess";
+                    location.href = "/ShoppingCart/CheckOutSuccess";
                 }
                 else {
                     location.href = res.Url;
@@ -33,7 +33,6 @@
     </script>
 
     @Html.AntiForgeryToken()
-
     <h3>Thông tin khách hàng</h3>
     if (!Request.IsAuthenticated)
     {
