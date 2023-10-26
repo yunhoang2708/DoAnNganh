@@ -224,7 +224,8 @@ namespace WebsiteBanGiayDep23.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                var it = (await UserManager.IsEmailConfirmedAsync(user.Id));
+                if (user == null)
                 {
                     // Don't reveal that the user does not exist or is not confirmed
                     return View("ForgotPasswordConfirmation");
@@ -232,10 +233,11 @@ namespace WebsiteBanGiayDep23.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                WebsiteBanGiayDep23.Common.Common.SendMail("HYPEBEAST SNEAKERS", "Quên mật khẩu", "Bấm vào link <a href='" + callbackUrl + "'>đây</a> để đặt lại mật khẩu", model.Email);
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                // ? Default await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
             }
 
             // If we got this far, something failed, redisplay form
