@@ -61,6 +61,19 @@ namespace WebsiteBanGiayDep23.Controllers
             return Json(new { Success = false });
         }
 
+        public ActionResult LichSuDonHang()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+                var userManager = new UserManager<ApplicationUser>(userStore);
+                var user = userManager.FindByName(User.Identity.Name);
+                var items = db.Orders.Where(x => x.CustomerId == user.Id).ToList();
+                return PartialView(items);
+            }
+            return PartialView();
+        }
+
         protected override void Dispose(bool disposing)
         {
 
