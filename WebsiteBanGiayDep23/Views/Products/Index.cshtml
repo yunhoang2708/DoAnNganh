@@ -106,7 +106,7 @@
                                         {
                                             strImge = img.Image;
                                         }
-                                        var wishlist = item.Wishlist.FirstOrDefault(x => x.UserName == User.Identity.UserName);
+                                        var wishlist = item.Wishlists.FirstOrDefault(x => x.UserName == User.Identity.Name);
                                         var isWishlist = false;
                                         if (wishlist != null)
                                         {

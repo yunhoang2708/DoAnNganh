@@ -1,4 +1,4 @@
-@model PagedList.PagedList<WebsiteBanGiayDep23.Models.EF.Wishlist>
+﻿@model PagedList.PagedList<WebsiteBanGiayDep23.Models.EF.Wishlist>
 @using PagedList.Mvc;
 @using PagedList;
 @{
@@ -45,14 +45,14 @@
                 </div>
                 <div class="col-md-9">
                     <div class="content-box">
-                        <h3><a href="/@item.Product.Alias-n@(item.ProductID)" title="@item.Product.Title">@item.Product.Title</a></h3>
+                        <h3><a href="/@item.Product.Alias-n@(item.ProductId)" title="@item.Product.Title">@item.Product.Title</a></h3>
                         <div class="description-box">
                             @item.Product.Description
                         </div>
                     </div>
                 </div>
                 <div class="col-md-1">
-                    <a href="#" data-id="@item.ID" class="btn btn-danger">Xóa</a>
+                    <a href="#" data-id="@item.Id" class="btn btn-danger">Xóa</a>
                 </div>
             </div>
         }
