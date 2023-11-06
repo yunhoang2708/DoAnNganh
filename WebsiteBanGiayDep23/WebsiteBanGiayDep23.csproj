@@ -3557,6 +3557,7 @@
     <Content Include="Views\Review\Partial_Review.cshtml" />
     <Content Include="Views\Review\Partial_Load_Review.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
+    <Content Include="Views\Review\LichSuDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
