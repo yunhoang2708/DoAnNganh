@@ -39,12 +39,15 @@ namespace WebsiteBanGiayDep23.Controllers
             {
                 return Json(new { Success = false, Message = "Sản phẩm có trong danh sách yêu thích" });
             }
-            var item = new Wishlist();
-            item.ProductId = ProductId;
-            item.UserName = User.Identity.Name;
-            item.CreatedDate = DateTime.Now;
-            db.Wishlists.Add(item);
-            db.SaveChanges();
+            else
+            {
+                var item = new Wishlist();
+                item.ProductId = ProductId;
+                item.UserName = User.Identity.Name;
+                item.CreatedDate = DateTime.Now;
+                db.Wishlists.Add(item);
+                db.SaveChanges();
+            }    
             return Json(new { Success = true });
         }
 
@@ -57,9 +60,9 @@ namespace WebsiteBanGiayDep23.Controllers
             {
                 db.Wishlists.Remove(item);
                 db.SaveChanges();
-                return Json(new { Success = true, Message = "Xóa thành công" });
+                return Json(new { Success = true, Message = "Thất bại" });
             }
-            return Json(new { Success = false, Message = "Xóa thất bại" });
+            return Json(new { Success = false, Message = "Thành công" });
         }
 
         private ApplicationDbContext db = new ApplicationDbContext();

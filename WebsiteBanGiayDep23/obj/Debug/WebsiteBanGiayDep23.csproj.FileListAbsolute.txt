@@ -258,13 +258,13 @@ E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\bin\System.Web.WebPages.Razor.xml
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.CreateTable.resources
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.ThongKe.resources
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.Update01.resources
+E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.InsertCustomerIdOder.resources
+E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.Table_Review.resources
+E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.Update_Table_Review_1.resources
+E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.tableWishList.resources
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.csproj.GenerateResource.cache
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.csproj.CoreCompileInputs.cache
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.csproj.CopyComplete
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.dll
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.pdb
-E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.InsertCustomerIdOder.resources
-E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.Table_Review.resources
-E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.Update_Table_Review_1.resources
-E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.Migrations.tableWishList.resources
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.csproj.AssemblyReference.cache
