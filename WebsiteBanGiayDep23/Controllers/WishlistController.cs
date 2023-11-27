@@ -18,7 +18,7 @@ namespace WebsiteBanGiayDep23.Controllers
             {
                 page = 1;
             }
-            IEnumerable<Wishlist> items = db.Wishlists.Where(x => x.UserName == User.Identity.Name).OrderByDescending(x => x.CreatedDate).ToPagedList(page.Value, pageSize);
+            IEnumerable<Wishlist> items = db.Wishlists.Where(x => x.UserName == User.Identity.Name).OrderByDescending(x => x.CreatedDate);
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);
             ViewBag.pageSize = pageSize;
@@ -39,30 +39,27 @@ namespace WebsiteBanGiayDep23.Controllers
             {
                 return Json(new { Success = false, Message = "Sản phẩm có trong danh sách yêu thích" });
             }
-            else
-            {
-                var item = new Wishlist();
-                item.ProductId = ProductId;
-                item.UserName = User.Identity.Name;
-                item.CreatedDate = DateTime.Now;
-                db.Wishlists.Add(item);
-                db.SaveChanges();
-            }    
+            var item = new Wishlist();
+            item.ProductId = ProductId;
+            item.UserName = User.Identity.Name;
+            item.CreatedDate = DateTime.Now;
+            db.Wishlists.Add(item);
+            db.SaveChanges();
             return Json(new { Success = true });
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult DeleteWishlist(int ProductId)
+        public ActionResult PostDeleteWishlist(int ProductId)
         {
             var item = db.Wishlists.FirstOrDefault(x => x.ProductId == ProductId && x.UserName == User.Identity.Name);
             if (item != null)
             {
                 db.Wishlists.Remove(item);
                 db.SaveChanges();
-                return Json(new { Success = true, Message = "Thất bại" });
+                return Json(new { Success = true, Message = "Thành công" });
             }
-            return Json(new { Success = false, Message = "Thành công" });
+            return Json(new { Success = false, Message = "Thất bại" });
         }
 
         private ApplicationDbContext db = new ApplicationDbContext();

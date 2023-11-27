@@ -217,7 +217,7 @@ jQuery(document).ready(function ($) {
 					if (active) {
 						fav.removeClass('active');
 						active = false;
-						DeleteWishlist(id);
+						PostDeleteWishlist(id);
 					}
 					else {
 						fav.addClass('active');
@@ -229,9 +229,9 @@ jQuery(document).ready(function ($) {
 		}
 	}
 
-	function AddWishlist(id) {
+	function PostDeleteWishlist(id) {
 		$.ajax({
-			url: '/Wishlist/PostWishlist',
+			url: '/Wishlist/PostDeleteWishlist',
 			type: 'POST',
 			data: { ProductId: id },
 			success: function (res) {
@@ -242,9 +242,9 @@ jQuery(document).ready(function ($) {
 		});
 	}
 
-	function DeleteWishlist(id) {
+	function AddWishlist(id) {
 		$.ajax({
-			url: '/Wishlist/DeleteWishlist',
+			url: '/Wishlist/PostWishlist',
 			type: 'POST',
 			data: { ProductId: id },
 			success: function (res) {

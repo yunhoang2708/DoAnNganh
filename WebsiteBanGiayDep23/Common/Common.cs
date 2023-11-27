@@ -88,12 +88,13 @@ namespace WebsiteBanGiayDep23.Common
                 str = @"<li><i class='fa fa-star' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
+                        <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star-o' aria-hidden='true'></i></li>";
             }
 
             if (rate == 2)
             {
-                str = @"<li><i class='fa fa-star-o' aria-hidden='true'></i></li>
+                str = @"<li><i class='fa fa-star' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
@@ -102,8 +103,8 @@ namespace WebsiteBanGiayDep23.Common
 
             if (rate == 3)
             {
-                str = @"<li><i class='fa fa-star-o' aria-hidden='true'></i></li>
-                        <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
+                str = @"<li><i class='fa fa-star' aria-hidden='true'></i></li>
+                        <li><i class='fa fa-star' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star-o' aria-hidden='true'></i></li>";
@@ -111,19 +112,19 @@ namespace WebsiteBanGiayDep23.Common
 
             if (rate == 4)
             {
-                str = @"<li><i class='fa fa-star-o' aria-hidden='true'></i></li>
-                        <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
-                        <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
+                str = @"<li><i class='fa fa-star' aria-hidden='true'></i></li>
+                        <li><i class='fa fa-star' aria-hidden='true'></i></li>
+                        <li><i class='fa fa-star' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star-o' aria-hidden='true'></i></li>";
             }
 
             if (rate == 5)
             {
-                str = @"<li><i class='fa fa-star-o' aria-hidden='true'></i></li>
-                        <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
-                        <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
-                        <li><i class='fa fa-star-o' aria-hidden='true'></i></li>
+                str = @"<li><i class='fa fa-star' aria-hidden='true'></i></li>
+                        <li><i class='fa fa-star' aria-hidden='true'></i></li>
+                        <li><i class='fa fa-star' aria-hidden='true'></i></li>
+                        <li><i class='fa fa-star' aria-hidden='true'></i></li>
                         <li><i class='fa fa-star' aria-hidden='true'></i></li>";
             }
             return str;

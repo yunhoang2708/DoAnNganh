@@ -267,4 +267,3 @@ E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.csproj.
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.csproj.CopyComplete
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.dll
 E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.pdb
-E:\WebsiteBanGiayDep23\WebsiteBanGiayDep23\obj\Debug\WebsiteBanGiayDep23.csproj.AssemblyReference.cache
